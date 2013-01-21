@@ -2,9 +2,9 @@ ListClass.pl
 ========
 Given X number of sourcecode files display a list of all the classes and subroutines declarations found. 
 
-This is a quick and dirty script. Currently, the code looks patterns for function\method calls regardless 
-of checking the language in the file, but if there is a next version it will have language detection and 
-act accordingly.
+This is a quick and dirty script. Currently, the code looks for patterns that indicatte function\method calls 
+regardless of checking the language in the file, but if there is a next version it will have language detection 
+and act accordingly.
 
 Some of the Supported Languages
 	
