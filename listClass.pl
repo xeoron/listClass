@@ -44,6 +44,7 @@ sub main(){
 	abstract => qr/^\s*abstract\s*\w+/,		#C, C++, Java, C#
 	defun => qr/^\s*defun\s+/,
 	define => qr/^\s*\(define\s+/,			#Lisp, Scheme
+	generic => qr/^\s*([A-Z])+\s+\w+\s*\(\s*$1/,	#generic to find: FOO Bar(FOO T)
 	int => qr/^\s*int\s*\w+\(/,			#C,C++, Dart
 	void => qr/^\s*void\s*\w+\(/,			#C,C++, Dart
 	float => qr/^\s*float\s*\w+\(/,			#C,C++, Dart
@@ -51,7 +52,7 @@ sub main(){
 	double => qr/^\s*double\s*\w+\(/,		#C,C++, Dart
 	char => qr/^\s*char\s*\w+\(/,			#C,C++, Dart
 	static => qr/^\s*static\s*/,			#C++, Dart
-	procedure => qr/^\s*procedure\s+/,
+	procedure => qr/^\s*procedure\s+/,		#Ada
 	proc => qr/^\s*proc\s+/,			#tcl
 	subroutine => qr/^\s*subroutine\s+\w+\s*\(/, 	#fortran
 	recursivesubroutine => qr/^\s*recursive subroutine\s+\w+\s*\(/,	#fortran
