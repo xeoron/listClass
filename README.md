@@ -8,45 +8,52 @@ and act accordingly.
 
 Some of the Supported Languages
 	
-	Applescript
-	Awk
-	Bash
-	C
-	C++
-	Dart
-	Go
-	Lisp
-	Lua
-	Fortran
-	Java
-	Javascript
-	MatLab
-	Perl
-	PHP
-	Python
-	Ruby
-	Scheme
-	TCL
-	Visual Basic
+    Ada
+    Applescript
+    Awk
+    Bash
+    C
+    C++
+    Dart
+    Go
+    Lisp
+    Lua
+    Fortran
+    Java
+    Javascript
+    MatLab
+    Pascal
+    Perl
+    Pike?
+    PHP
+    Python
+    Ruby
+    Scheme
+    TCL
+    Visual Basic
 	
 Limitations
 
-	Missing detection of functions that use structs or generics. 
-	Example of what it can't detect: FOO Bar(FOO T)	
+   C, C++, Java support could be better, along with generic support, but it does detect
+	
+    public static <T> int countGreaterThan(T[] anArray, T elem) {
+	 
+    FOO Bar(FOO T){
 
 Usage
 =====
-    
-	listClass.pl file1.py file2.pl file3.java file4.sh
-    
-   Example reading 3 different files
+   Format
+   
+    listClass.pl file0.py file1.pl file4.java file5.sh .. fileN-1
+
+Example
   
-     listClass.pl woof.py frenamer.pl twitterstream.py
+    listClass.pl woof.py frenamer.pl twitterStream.py
     
    Results
 
-     ..\woof.py:(7)
-	 ===========
+     ./woof.py:(7)
+	 ==========
  	  def find_ip ():
  	  class FileServHTTPRequestHandler (BaseHTTPServer.BaseHTTPRequestHandler):
   	  def log_request (self, code='-', size='-'):
@@ -55,8 +62,8 @@ Usage
  	  def usage (defport, defmaxdown, errmsg = None):
  	  def main ():
    
-     ..\frenamer\frenamer.pl:(15)
-	 ========================
+     ./frenamer.pl:(15)
+	 ==============
 	  sub sig_handler{ 	#capture Ctrl+C signal
       sub cmdlnParm(){	#display the program usage info 
       sub confirmChange($$){ #ask if pending change is good or bad. Parameters $currentFilename and $newFilename
@@ -73,7 +80,7 @@ Usage
       sub bool ($){	return (shift >=1) ? "On" : "Off";  } #translate boolean to On or Off for user verbose settings mode
       sub main(){
    
-    .\twitterStream.py:(6)
+    ./twitterStream.py:(6)
 	===================
       class TwitterStream:
       def __init__(self):
