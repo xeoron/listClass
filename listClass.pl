@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 # Author: Jason Campisi
-# File: classDataList.pl
-# CopyLeft: 2002
+# File: listclass.pl
+# CopyLeft: 2002 GPL v2 or higher
 #
 # Purpose: create a program that will read in X number of filenames and display
 #  all the data in the file that is listed as public and private data and methods.
@@ -100,21 +100,21 @@ sub main(){
 
 sub usage(){
   if ($ARGV[0]=~m/-(v|-version)/i){
-	  print "ClassDataList.pl $version\n"; 
+	  print "listclass.pl $version\n"; 
   }else{
  print <<eof
-ClassDataList.pl $version handles n-number of file names.
+listclass.pl $version handles n-number of file names.
  Usage: perl programName filename1 filename2
-   classDataList.pl <file_1 file_2 ... file_n>
+   listclass.pl <file_1 file_2 ... file_n>
   --help -h 		displays usage 
   --version -v		program version
 
  Searches for most class and methods declarations/headers in
-      Ada, AWK, C?, C++, C#, Fortran, Java, Lisp, Pascal, Perl, 
+      Ada, AWK, C?, C++, C, Fortran, Java, Lisp, Pascal, Perl, 
       PHP, Pike?, Python, Ruby, Scheme, Tcl, & VB
  Note: It does not check what language it is parsing. 
        ? marks denotes known partial support.
- ClassDataList $version is released under the LGPL version 2 or higher
+ listclass $version is released under the GPL version 2 or higher
 eof
 ; 
  } #end else
