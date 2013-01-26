@@ -111,8 +111,8 @@ listclass.pl $version handles n-number of file names.
   --version -v		program version
 
  Searches for most class and methods declarations/headers in
-      Ada, Applescript, AWK, Bash, C?, C++?, $csharp?, Dart, Fortran, Go, Java?, Lisp, 
-      Lua, Matlab, Pascal, Perl, PHP, Pike?, Python, Ruby, Scheme, Tcl, & VB
+      Ada, AppleScript, AWK, Bash, C?, C++?, $csharp?, Dart, Fortran, Go, Java?, JavaScript,
+      Lisp, Lua, Matlab, Pascal, Perl, PHP, Pike?, Python, Ruby, Scheme, Tcl, & VB
  Note: It does not check what language it is parsing. 
        ? marks denotes known partial support.
  listclass $version is released under the GPL version 2 or higher
