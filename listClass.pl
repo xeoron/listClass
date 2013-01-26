@@ -52,7 +52,7 @@ sub main(){
 	double => qr/^\s*double\s*\w+\(/,		#C,C++, Dart
 	char => qr/^\s*char\s*\w+\(/,			#C,C++, Dart
 	static => qr/^\s*static\s*/,			#C++, Dart
-	procedure => qr/^\s*procedure\s+/,		#Ada
+	procedure => qr/^\s*procedure\s+/,		#Ada, Pascal
 	proc => qr/^\s*proc\s+/,			#tcl
 	subroutine => qr/^\s*subroutine\s+\w+\s*\(/, 	#fortran
 	recursivesubroutine => qr/^\s*recursive subroutine\s+\w+\s*\(/,	#fortran
@@ -102,6 +102,7 @@ sub usage(){
   if ($ARGV[0]=~m/-(v|-version)/i){
 	  print "listclass.pl $version\n"; 
   }else{
+  my $csharp="C#";
  print <<eof
 listclass.pl $version handles n-number of file names.
  Usage: perl programName filename1 filename2
@@ -110,8 +111,8 @@ listclass.pl $version handles n-number of file names.
   --version -v		program version
 
  Searches for most class and methods declarations/headers in
-      Ada, AWK, C?, C++, C, Fortran, Java, Lisp, Pascal, Perl, 
-      PHP, Pike?, Python, Ruby, Scheme, Tcl, & VB
+      Ada, Applescript, AWK, Bash, C?, C++?, $csharp?, Dart, Fortran, Go, Java?, Lisp, 
+      Lua, Matlab, Pascal, Perl, PHP, Pike?, Python, Ruby, Scheme, Tcl, & VB
  Note: It does not check what language it is parsing. 
        ? marks denotes known partial support.
  listclass $version is released under the GPL version 2 or higher
