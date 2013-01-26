@@ -68,19 +68,19 @@ sub main(){
 	@result=();
         $result[0]="$file:";
 
-	if (open (DATA,"<$file")){
-	    until (flock(DATA, LOCK_EX)){ sleep .10; }
-	}else {  print " Error--Could not read the file $file: $!\n"; next;} 
-	    foreach(<DATA>){
-		next if ( m/^\s?$/ );		  #if blank line, go to the next
-		s/^\s+/ / if (m/^\s+/);     #prune whitespaces before characters
-	        s/\r$//g  if (m/\r\n$/g && $^O!=~m/mswin/i); #*nix doesn't need \r's
-		foreach my $k (keys %pattern){ #only 1 value needs to match
-		if ( m/$pattern{$k}/i ){
-			   $count++;
-			   $result[++$#result]=" $_";
-			   last;
-	        }#end if
+	if (open (DATA,"<$file")){  until (flock(DATA, LOCK_EX)){ sleep .10; }  }
+	else {  print " Error--Could not read the file $file: $!\n"; next; } 
+	
+	foreach(<DATA>){
+	   next if ( m/^\s?$/ );          #if blank line, go to the next
+	   s/^\s+/ / if (m/^\s+/);        #prune whitespaces before characters
+	   s/\r$//g  if (m/\r\n$/g && $^O!=~m/mswin/i); #*nix doesn't need \r's
+	   foreach my $k (keys %pattern){ #only 1 value needs to match
+	       if ( m/$pattern{$k}/i ){
+	            $count++;
+		    $result[++$#result]=" $_";
+		    last;
+	       }#end if
 	    }#end foreach
 	}#end foreach
 	flock (DATA, LOCK_UN);
