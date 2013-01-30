@@ -14,6 +14,7 @@ Some of the Supported Languages
     Bash
     C
     C++
+    Clojure
     Dart
     Go
     Lisp
@@ -34,7 +35,7 @@ Some of the Supported Languages
 	
 Limitations
 =====
-   C, C++, Java support could be better, along with generic support, but it does detect
+   C, C++, C#, Java support could be better, along with generic support, but it does detect
 	
     public static <T> int countGreaterThan(T[] anArray, T elem) {
 	 
