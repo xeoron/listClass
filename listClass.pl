@@ -42,8 +42,9 @@ sub main(){
 	public => qr/^\s*public\s+/,			#C, C++, Java, C#
 	protected => qr/^\s*protected\s+/,		#C, C++, Java, C#
 	abstract => qr/^\s*abstract\s*\w+/,		#C, C++, Java, C#
-	defun => qr/^\s*defun\s+/,
-	define => qr/^\s*\(define\s+/,			#Lisp, Scheme
+#	defun => qr/^\s*defun\s+/,
+#	define => qr/^\s*\(define\s+/,			#Lisp, Scheme
+	def => qr/^\s*\(def\w*\s+/,			#Lisp, Scheme, Clojure
 	generic => qr/^\s*([A-Z])+\s+\w+\s*\(\s*$1/,	#generic to find: FOO Bar(FOO T)
 	int => qr/^\s*int\s*\w+\(/,			#C,C++, Dart
 	void => qr/^\s*void\s*\w+\(/,			#C,C++, Dart
@@ -102,7 +103,7 @@ sub usage(){
   if ($ARGV[0]=~m/-(v|-version)/i){
 	  print "listclass.pl $version\n"; 
   }else{
-  my $csharp="C#";
+
  print <<eof
 listclass.pl $version handles n-number of file names.
  Usage: perl programName filename1 filename2
@@ -111,8 +112,9 @@ listclass.pl $version handles n-number of file names.
   --version -v		program version
 
  Searches for most class and methods declarations/headers in
-      Ada, AppleScript, AWK, Bash, C?, C++?, $csharp?, Dart, Fortran, Go, Java?, JavaScript,
-      Lisp, Lua, Matlab, Pascal, Perl, PHP, Pike?, Python, Ruby, Scheme, Tcl, & VB
+      Ada, AppleScript, AWK, Bash, C?, C++?, C#?, Clojure, Dart, Fortran, Go, Java?, 
+      JavaScript, Lisp, Lua, Matlab, Pascal, Perl, PHP, Pike?, Python, Ruby, Scheme, 
+      Tcl, & Visual Basic
  Note: It does not check what language it is parsing. 
        ? marks denotes known partial support.
  listclass $version is released under the GPL version 2 or higher
