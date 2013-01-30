@@ -42,7 +42,7 @@ sub main(){
 	public => qr/^\s*public\s+/,			#C, C++, Java, C#
 	protected => qr/^\s*protected\s+/,		#C, C++, Java, C#
 	abstract => qr/^\s*abstract\s*\w+/,		#C, C++, Java, C#
-#	defun => qr/^\s*defun\s+/,
+	defun => qr/^\s*defun\s+/,
 #	define => qr/^\s*\(define\s+/,			#Lisp, Scheme
 	def => qr/^\s*\(def\w*\s+/,			#Lisp, Scheme, Clojure
 	generic => qr/^\s*([A-Z])+\s+\w+\s*\(\s*$1/,	#generic to find: FOO Bar(FOO T)
