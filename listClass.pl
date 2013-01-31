@@ -30,7 +30,7 @@ sub main(){
  my %pattern = (
 	def => qr/^\s*def\s+/,				#python, ruby, E
 	sub => qr/^\s*sub\s+/,				#perl, visual basic
-	class => qr/^\s*class\s+/,			#C, C++, Java, C#, Dart
+	class => qr/^\s*class\s+/,			#C, C++, Java, C#, Dartm  Asp.Net
 	function1 => qr/^\s*function\s*\w+[\(|\{]/,	#javascript, php awk, bash, Lua, visual basic
 	function2 => qr/^\s*function\s+/,		#awk, bash
 	function3 => qr/^\s*function\s+\w+=\w+\(/,	#matlab
@@ -57,7 +57,7 @@ sub main(){
 	proc => qr/^\s*proc\s+/,			#tcl
 	subroutine => qr/^\s*subroutine\s+\w+\s*\(/, 	#fortran
 	recursivesubroutine => qr/^\s*recursive subroutine\s+\w+\s*\(/,	#fortran
-	
+
 	#note: add Opa support
 	#missing detection of C-based langauge functions that use structs or generics. Exmaple: FOO Bar(FOO f)
 	#language list: http://home.nvg.org/~sk/lang/lang.html
@@ -71,7 +71,7 @@ sub main(){
 
 	if (open (DATA,"<$file")){  until (flock(DATA, LOCK_EX)){ sleep .10; }  }
 	else {  print " Error--Could not read the file $file: $!\n"; next; } 
-	
+
 	foreach(<DATA>){
 	   next if ( m/^\s?$/ );          #if blank line, go to the next
 	   s/^\s+/ / if (m/^\s+/);        #prune whitespaces before characters
@@ -85,16 +85,16 @@ sub main(){
 	    }#end foreach
 	}#end foreach
 	flock (DATA, LOCK_UN);
-		
+
 	$result[0] = $result[0] . "($count)\n" . '=' x length($file . "1") . "\n";
 	print @result; 
 	print "\n" if ($#ARGV>=0); #add a blank newline between the current and next file to parse for methods
 	undef @result;
-		
+
     }else{ 
 	print "File: '" .$file . "' can not be read or does not exist!\n"; 
     }
-	
+
 	#reset variables for next loops
  }#end while
 }#end main
@@ -112,9 +112,9 @@ listclass.pl $version handles n-number of file names.
   --version -v		program version
 
  Searches for most class and methods declarations/headers in
-      Ada, AppleScript, AWK, Bash, C?, C++?, C#?, Clojure, Dart, E, Fortran, Go, Java?, 
-      JavaScript, Lisp, Lua, Matlab, Pascal, Perl, PHP, Pike?, Python, Ruby, Scheme, 
-      Tcl, & Visual Basic
+      Ada, AppleScript, Asp.net, AWK, Bash, C?, C++?, C#?, Clojure, Dart, E, Fortran, 
+      Go, Java?, JavaScript, Lisp, Lua, Matlab, Pascal, Perl, PHP, Pike?, Python, Ruby, 
+      Scheme, Tcl, & Visual Basic
  Note: It does not check what language it is parsing. 
        ? marks denotes known partial support.
  listclass $version is released under the GPL version 2 or higher
