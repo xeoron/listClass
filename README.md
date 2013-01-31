@@ -16,6 +16,7 @@ Some of the Supported Languages
     C++
     Clojure
     Dart
+    E
     Go
     Lisp
     Lua
