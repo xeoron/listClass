@@ -28,7 +28,7 @@ sub main(){
  my @result; 
  my $count=0;
  my %pattern = (
-	def => qr/^\s*def\s+/,				#python, ruby
+	def => qr/^\s*def\s+/,				#python, ruby, E
 	sub => qr/^\s*sub\s+/,				#perl, visual basic
 	class => qr/^\s*class\s+/,			#C, C++, Java, C#, Dart
 	function1 => qr/^\s*function\s*\w+[\(|\{]/,	#javascript, php awk, bash, Lua, visual basic
@@ -112,7 +112,7 @@ listclass.pl $version handles n-number of file names.
   --version -v		program version
 
  Searches for most class and methods declarations/headers in
-      Ada, AppleScript, AWK, Bash, C?, C++?, C#?, Clojure, Dart, Fortran, Go, Java?, 
+      Ada, AppleScript, AWK, Bash, C?, C++?, C#?, Clojure, Dart, E, Fortran, Go, Java?, 
       JavaScript, Lisp, Lua, Matlab, Pascal, Perl, PHP, Pike?, Python, Ruby, Scheme, 
       Tcl, & Visual Basic
  Note: It does not check what language it is parsing. 
