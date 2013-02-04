@@ -30,7 +30,7 @@ sub main(){
  my %pattern = (
 	def => qr/^\s*def\s+/,				#python, ruby, E
 	sub => qr/^\s*sub\s+/,				#perl, visual basic
-	class => qr/^\s*class\s+/,			#C, C++, Java, C#, Dartm  Asp.Net
+	class => qr/^\s*class\s+/,			#C, C++, Java, C#, Dartm, Asp.Net, Vala
 	function1 => qr/^\s*function\s*\w+[\(|\{]/,	#javascript, php awk, bash, Lua, visual basic
 	function2 => qr/^\s*function\s+/,		#awk, bash
 	function3 => qr/^\s*function\s+\w+=\w+\(/,	#matlab
@@ -46,12 +46,12 @@ sub main(){
 #	define => qr/^\s*\(define\s+/,			#Lisp, Scheme
 	def => qr/^\s*\(def\w*\s+/,			#Lisp, Scheme, Clojure
 	generic => qr/^\s*([A-Z])+\s+\w+\s*\(\s*$1/,	#generic to find: FOO Bar(FOO T)
-	int => qr/^\s*int\s*\w+\(/,			#C,C++, Dart
-	void => qr/^\s*void\s*\w+\(/,			#C,C++, Dart
-	float => qr/^\s*float\s*\w+\(/,			#C,C++, Dart
-	string => qr/^\s*string\s*\w+\(/,		#C,C++, Dart
-	double => qr/^\s*double\s*\w+\(/,		#C,C++, Dart
-	char => qr/^\s*char\s*\w+\(/,			#C,C++, Dart
+	int => qr/^\s*int\s*\w+\(/,			#C,C++, Dart. Vala
+	void => qr/^\s*void\s*\w+\(/,			#C,C++, Dart. Vala
+	float => qr/^\s*float\s*\w+\(/,			#C,C++, Dart. Vala
+	string => qr/^\s*string\s*\w+\(/,		#C,C++, Dart. Vala
+	double => qr/^\s*double\s*\w+\(/,		#C,C++, Dart. Vala
+	char => qr/^\s*char\s*\w+\(/,			#C,C++, Dart. Vala
 	static => qr/^\s*static\s*/,			#C++, Dart
 	procedure => qr/^\s*procedure\s+/,		#Ada, Pascal
 	proc => qr/^\s*proc\s+/,			#tcl
@@ -114,7 +114,7 @@ listclass.pl $version handles n-number of file names.
  Searches for most class and methods declarations/headers in
       Ada, AppleScript, Asp.net, AWK, Bash, C?, C++?, C#?, Clojure, Dart, E, Fortran, 
       Go, Java?, JavaScript, Lisp, Lua, Matlab, Pascal, Perl, PHP, Pike?, Python, Ruby, 
-      Scheme, Tcl, & Visual Basic
+      Scheme, Tcl, Vala? & Visual Basic
  Note: It does not check what language it is parsing. 
        ? marks denotes known partial support.
  listclass $version is released under the GPL version 2 or higher
