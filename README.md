@@ -32,6 +32,7 @@ Some of the Supported Languages
     Ruby
     Scheme
     TCL
+    Vala
     Visual Basic
 	
 Limitations
