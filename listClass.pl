@@ -75,7 +75,7 @@ sub main(){
 	foreach(<DATA>){
 	   next if ( m/^\s?$/ );          #if blank line, go to the next
 	   s/^\s+/ / if (m/^\s+/);        #prune whitespaces before characters
-	   s/\r$//g  if (m/\r\n$/g && $^O!=~m/mswin/i); #*nix doesn't need \r's
+	   s/\r//g  if (m/\r\n$/g && $^O!=~m/mswin/i); #*nix doesn't need \r's
 	   foreach my $k (keys %pattern){ #only 1 value needs to match
 	       if ( m/$pattern{$k}/i ){
 	            $count++;
