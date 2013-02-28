@@ -30,7 +30,7 @@ sub main(){
  my %pattern = (
 	def => qr/^\s*def\s+/,				#python, ruby, E
 	sub => qr/^\s*sub\s+/,				#perl, visual basic
-	class => qr/^\s*class\s+/,			#C, C++, Java, C#, Dartm, Asp.Net, Vala
+	class => qr/^\s*class\s+/,			#C, C++, Java, C#, Dart, Asp.Net, Vala
 	function1 => qr/^\s*function\s*\w+[\(|\{]/,	#javascript, php awk, bash, Lua, visual basic
 	function2 => qr/^\s*function\s+/,		#awk, bash
 	function3 => qr/^\s*function\s+\w+=\w+\(/,	#matlab
