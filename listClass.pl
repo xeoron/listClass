@@ -28,9 +28,9 @@ sub main(){
  my @result; 
  my $count=0;
  my %pattern = (
-	def => qr/^\s*def\s+/,				#python, ruby, E
+	def => qr/^\s*def\s+/,				#python, scala, ruby, E
 	sub => qr/^\s*sub\s+/,				#perl, visual basic
-	class => qr/^\s*class\s+/,			#C, C++, Java, C#, Dart, Asp.Net, Vala
+	class => qr/^\s*class\s+/,			#C, C++, Java, C#, Dart, Asp.Net, Scala, Vala
 	function1 => qr/^\s*function\s*\w+[\(|\{]/,	#javascript, php awk, bash, Lua, visual basic
 	function2 => qr/^\s*function\s+/,		#awk, bash
 	function3 => qr/^\s*function\s+\w+=\w+\(/,	#matlab
@@ -45,6 +45,7 @@ sub main(){
 	defun => qr/^\s*defun\s+/,
 #	define => qr/^\s*\(define\s+/,			#Lisp, Scheme
 	def => qr/^\s*\(def\w*\s+/,			#Lisp, Scheme, Clojure
+	object =>qr/^\s*object\s*\w+/,			#scala
 	generic => qr/^\s*([A-Z])+\s+\w+\s*\(\s*$1/,	#generic to find: FOO Bar(FOO T)
 	int => qr/^\s*int\s*\w+\(/,			#C,C++, Dart. Vala
 	void => qr/^\s*void\s*\w+\(/,			#C,C++, Dart. Vala
@@ -114,7 +115,7 @@ listclass.pl $version handles n-number of file names.
  Searches for most class and methods declarations/headers in
       Ada, AppleScript, Asp.net, AWK, Bash, C?, C++?, C#?, Clojure, Dart, E, Fortran, 
       Go, Java?, JavaScript, Lisp, Lua, Matlab, Pascal, Perl, PHP, Pike?, Python, Ruby, 
-      Scheme, Tcl, Vala? & Visual Basic
+      Scala, Scheme, Tcl, Vala? & Visual Basic
  Note: It does not check what language it is parsing. 
        ? marks denotes known partial support.
  listclass $version is released under the GPL version 2 or higher
