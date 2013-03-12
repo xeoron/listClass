@@ -30,6 +30,7 @@ Some of the Supported Languages
     PHP
     Python
     Ruby
+    Scala
     Scheme
     TCL
     Vala
