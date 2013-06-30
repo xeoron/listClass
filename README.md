@@ -1,4 +1,4 @@
-ListClass.pl
+ListClass
 ========
 Given X number of sourcecode files display a list of all the classes and subroutines declarations found. 
 
@@ -48,11 +48,11 @@ Usage
 =====
    Format
    
-    listClass.pl file0.py file1.pl file4.java file5.sh .. fileN-1
+    listClass file0.py file1.pl file4.java file5.sh .. fileN-1
 
 Example
   
-    listClass.pl woof.py frenamer.pl twitterStream.py
+    listClass woof.py frenamer.pl twitterStream.py
     
    Results
 
