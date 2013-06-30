@@ -93,3 +93,25 @@ Example
       def start(self):
       def handle_tweet(self, data):
 	
+Requirements
+=====
+
+    Terminal
+    Perl v5.x or higher
+    Works on OS X, Linux, Solaris, and even MS Windows
+
+Setup
+=====
+Automated command
+
+	sudo ./install_listClass.sh
+
+Manual commands
+
+    cd ./listClass/
+    chmod +x ./listClass.pl
+    sudo cp ./listClass.pl /usr/bin/listClass
+    
+License
+=====
+ListClass is copyleft 2002 under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL v2</a> or higher.
