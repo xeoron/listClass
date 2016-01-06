@@ -32,7 +32,7 @@ fi
 
 echo " Checking if you have the clearance to install this ...";
 if [ "$(whoami)" != 'root' ]; then
-	echo " You do not have permission to install './$FILE'";
+	echo " You do not have permission to install ./$FILE";
 	echo " ->You must be a root user.";
 	echo " ->Try instead: sudo $0";
 	exit 1;

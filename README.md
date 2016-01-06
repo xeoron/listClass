@@ -24,6 +24,7 @@ Some of the Supported Languages
     Java
     Javascript
     MatLab
+    Opa
     Pascal
     Perl
     Pike?

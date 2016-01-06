@@ -20,7 +20,7 @@ use strict;
 use Fcntl;
 use constant LOCK_UN => '8';
 use constant LOCK_EX => '2';
-my $version ="v0.1.4 Date(9/17/2002)";
+my $version ="v0.1.5 Date(9/17/2002->2016)";
 
 sub main(){
  usage() if( scalar(@ARGV)<=0 or ($ARGV[0]=~m/-(v|-version|h|-help)/i));
@@ -28,26 +28,26 @@ sub main(){
  my @result; 
  my $count=0;
  my %pattern = (
-	def => qr/^\s*def\s+/,				#python, scala, ruby, E
-	sub => qr/^\s*sub\s+/,				#perl, visual basic
-	class => qr/^\s*class\s+/,			#C, C++, Java, C#, Dart, Asp.Net, Scala, Vala
+	def => qr/^\s*def\s+/,				    #python, scala, ruby, E
+	def2 => qr/^\s*\(def\w*\s+/,			#Lisp, Scheme, Clojure
+#	define => qr/^\s*\(define\s+/,			#Lisp, Scheme
+	sub => qr/^\s*sub\s+/,				    #Perl, visual basic
+	class => qr/^\s*class\s+/,			    #C, C++, Java, C#, Dart, Asp.Net, Scala, Vala
 	function1 => qr/^\s*function\s*\w+[\(|\{]/,	#javascript, php awk, bash, Lua, visual basic
-	function2 => qr/^\s*function\s+/,		#awk, bash
+	function2 => qr/^\s*function\s+/,		#awk, bash, Opa
 	function3 => qr/^\s*function\s+\w+=\w+\(/,	#matlab
 	func => qr/^\s*func\s*\w+\(/,			#Go
-	on => qr/^\s*on\s*\w+\(/, 			#applescript
-	onrun => qr/^\s*on\s*run/,	 		#applescript
+	on => qr/^\s*on\s*\w+\(/, 			    #applescript
+	onrun => qr/^\s*on\s*run/,	 		    #applescript
 	onopen=> qr/^\s*on\s*open/, 			#applescript droplet method
 	private => qr/^\s*private\s+/,			#C, C++, Java, C#
 	public => qr/^\s*public\s+/,			#C, C++, Java, C#
 	protected => qr/^\s*protected\s+/,		#C, C++, Java, C#
 	abstract => qr/^\s*abstract\s*\w+/,		#C, C++, Java, C#
 	defun => qr/^\s*defun\s+/,
-#	define => qr/^\s*\(define\s+/,			#Lisp, Scheme
-	def => qr/^\s*\(def\w*\s+/,			#Lisp, Scheme, Clojure
 	object =>qr/^\s*object\s*\w+/,			#scala
 	generic => qr/^\s*([A-Z])+\s+\w+\s*\(\s*$1/,	#generic to find: FOO Bar(FOO T)
-	int => qr/^\s*int\s*\w+\(/,			#C,C++, Dart. Vala
+	int => qr/^\s*int\s*\w+\(/,			    #C,C++, Dart. Vala
 	void => qr/^\s*void\s*\w+\(/,			#C,C++, Dart. Vala
 	float => qr/^\s*float\s*\w+\(/,			#C,C++, Dart. Vala
 	string => qr/^\s*string\s*\w+\(/,		#C,C++, Dart. Vala
@@ -55,11 +55,11 @@ sub main(){
 	char => qr/^\s*char\s*\w+\(/,			#C,C++, Dart. Vala
 	static => qr/^\s*static\s*/,			#C++, Dart
 	procedure => qr/^\s*procedure\s+/,		#Ada, Pascal
-	proc => qr/^\s*proc\s+/,			#tcl
+	proc => qr/^\s*proc\s+/,			    #tcl
 	subroutine => qr/^\s*subroutine\s+\w+\s*\(/, 	#fortran
 	recursivesubroutine => qr/^\s*recursive subroutine\s+\w+\s*\(/,	#fortran
 
-	#note: add Opa support
+	#note:
 	#missing detection of C-based langauge functions that use structs or generics. Exmaple: FOO Bar(FOO f)
 	#language list: http://home.nvg.org/~sk/lang/lang.html
 );
@@ -114,7 +114,7 @@ listclass.pl $version handles n-number of file names.
 
  Searches for most class and methods declarations/headers in
       Ada, AppleScript, Asp.net, AWK, Bash, C?, C++?, C#?, Clojure, Dart, E, Fortran, 
-      Go, Java?, JavaScript, Lisp, Lua, Matlab, Pascal, Perl, PHP, Pike?, Python, Ruby, 
+      Go, Java?, JavaScript, Lisp, Lua, Matlab, Opa, Pascal, Perl, PHP, Pike?, Python, Ruby, 
       Scala, Scheme, Tcl, Vala? & Visual Basic
  Note: It does not check what language it is parsing. 
        ? marks denotes known partial support.
